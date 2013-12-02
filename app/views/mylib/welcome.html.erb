@@ -1,0 +1,61 @@
+ 	
+
+<style>
+
+div.padding
+{
+padding : 130px 430px;
+}
+.signup-btn a{
+		text-decoration: none;
+		color: #000;}
+.err{
+	color: red;
+	font-size: 14px;
+	margin-top: 10px;
+}
+</style>
+
+<div  class="padding">
+<h1> Welcome to my library </h1>
+<%= form_for(@user , url: check_path) do |f| %>
+   <% if @user.errors.any? %>
+		<div id="error_explanation" >
+			<h2><%= pluralize(@user.errors.count, "error" ) %>
+			prohibited this product from being saved:</h2>
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+    <% end %> 
+
+
+<table>
+<tr>
+<td><b><%= f.label :"Email" %></b></td>
+<td><%= f.text_field :email %></td>
+</tr>
+<tr>
+<td><b><%= f.label :"Password" %></b></td>
+<td><%= f.password_field :password %></td>
+</tr>
+<tr>
+<td><%= f.submit :value => "Sign in" %></td>
+<td><%= button_tag class: 'signup-btn' do %>
+	<%= link_to 'Sign up', signup_path %>
+	<%end%></td>
+</tr>
+<tr><td></td><td><i><p class="err"><%= notice %></p><i></td></tr>
+</table>
+
+
+
+
+</div>
+<% end %> 
+
+
+
+   

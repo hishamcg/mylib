@@ -1,0 +1,194 @@
+<style>
+
+.btn a{
+	font-size: 15px;
+    text-decoration: none;
+	color: #ff3333;}
+
+.btn2 a{
+	font-size: 15px;
+    text-decoration: none;
+	color: #3333ff;}
+
+.btn3 a{
+	font-size: 15px;
+    text-decoration: none;
+	color: #000000;}
+
+a:hover{
+		color: #0000ff;}
+
+ul.enlarge{
+list-style-type:none; /*remove the bullet point*/}
+
+ul.enlarge li{
+position: relative; /*allows precise positioning of the popup image when used with position:absolute - see support section */
+z-index: 0; /*resets the stack order of the list items - we'll increase in step 4. See support section for more info*/
+margin:10px 40px 0 0px; /*space between the images*/}
+
+ul.enlarge span.hov{
+   display:none;
+   z-index: 50; 
+   position: absolute; /*see support section for more info on positioning*/
+   	/*moves the span off the page, effectively hidding it from view*/
+}
+
+ul.enlarge img{
+/*give the thumbnails a frame*/
+background-color:#eae9d4; /*frame colour*/
+padding: 6px; /*frame size*/
+/*add a drop shadow to the frame*/
+-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+/*and give the corners a small curve*/
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+ul.enlarge span.hov img{
+
+padding: 2px; /*size of the frame*/
+background: #ccc; /*colour of the frame*/
+}
+
+ul.enlarge span.hov{
+/**Style the frame**/
+padding: 20px; /*size of the frame*/
+background:#eae9d4; /*colour of the frame*/
+/*add a drop shadow to the frame*/
+-webkit-box-shadow: 0 0 20px rgba(0,0,0, .75));
+-moz-box-shadow: 0 0 20px rgba(0,0,0, .75);
+box-shadow: 0 0 20px rgba(0,0,0, .75);
+/*give the corners a curve*/
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius:8px;
+/**Style the caption**/
+font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google fonts*/
+font-size:.9em;
+text-align: center;
+color: #495a62;
+}
+
+ul.enlarge li:hover{
+
+z-index: 50; /*places the popups infront of the thumbnails, which we gave a z-index of 0 in step 1*/
+cursor:pointer; /*changes the cursor to a hand*/
+}
+/***We bring the large image back onto the page by reducing left from -9999px (set in step 2) to figures below***/ 
+ul.enlarge li:hover span.hov{ /*positions the <span> when the <li> (which contains the thumbnail) is overed*/ 
+display: inline-block;
+top: -130px; /*the distance from the bottom of the thumbnail to the top of the popup image*/
+left: 100px; /*distance from the left of the thumbnail to the left of the popup image*/
+}
+
+.text{
+	left:50px;
+	font-family: 'Droid Sans', sans-serif;
+	color: #495a62;
+	position:relative;	
+    pos
+}
+
+</style>
+
+<% if @user.admin %>
+<h2 style="color:blue;margin-left:29px;"> Welcome Admin</h2>
+<%else%>
+<h2 style="color:blue;margin-left:29px;"> <%=@user.name.upcase%>'s Account</h2>
+<%end%>
+
+<%a="btn"%>
+<%b="btn"%>
+<%c="btn"%>
+
+<%if @data%>
+	<%if @data.first.category_id == 1 %>
+	<%a="btn2"%>
+	<%elsif @data.first.category_id == 2%>
+	<%b="btn2"%>
+	<%elsif @data.first.category_id == 3%>
+	<%c="btn2"%>
+	<%else%>
+	<%end%> 
+<%end%>
+
+
+
+
+<table>
+
+ <tr> 
+ <td>
+    <table >
+    <tr><td><%= button_tag class: a do %>
+	<%= link_to 'Fiction', category_path(:fiction) %>
+	<%end%></td>
+    <td><%= button_tag class: b do %>
+	<%= link_to 'Triller', category_path(:thriller) %>
+	<%end%></td>
+    <td><%= button_tag class: c do %>
+	<%= link_to 'Romance', category_path(:romance) %>
+	<%end%></td>
+
+	<%if @user.admin%>
+    <td style="text-align:left;"><%= button_tag class: "btn3" do %>
+	<%= link_to 'Back', admin_path%>
+	<%end%></td>
+	<%end%>
+	</tr>
+	</table>
+
+
+
+   
+    
+	<% if @data %>
+	   
+	    <ul class="enlarge">
+	    <% @data.each do |data| %>
+	        <%if data.title && !data.title.blank?%>
+				
+				
+				<table>
+				<tr><td>
+				    <li>
+				    <span class="hov"> 
+                    	<img src="<%="/assets/#{data.image}"%>" width="220" height="300px" alt="<%="#{data.image}"%>" />
+                    	<br/>
+                    	<%= data.title.upcase %>
+                	</span>
+					
+					<img src="<%="/assets/#{data.image}"%>" width="100px" height="130px" alt="<%="#{data.image}"%>" />
+					</li>
+				</td><td>
+
+				    <div class="text">
+                	<b>Title: <%= data.title.capitalize%></b><br/>
+                	<b>Author: <%= data.author.capitalize%></b><br/>
+                	<b>Price: Rs <%=data.price%> only</b><br/>
+                		<%= button_tag class: "btn" do %>
+						<%= link_to 'buy', proceedtopay_path(:data) %>
+					<%end%>
+					</div>
+
+				</td></tr>
+                </table>
+
+					
+				
+               
+                
+			<%end%>
+		<%end%>
+		</ul>
+		
+	<%end%>
+	
+	
+</td>
+</tr>
+</table>
+

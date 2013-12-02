@@ -1,0 +1,54 @@
+	 
+
+<style>
+
+div.padding
+{
+padding : 130px 430px;
+}
+.errors ul li{
+	color: red;
+	font-size: 12px;
+}
+</style>
+
+<div  class="padding">
+<h1> Welcome to my library </h1>
+<%= form_for(@user) do |f| %>
+<div class="errors">
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+			<li> <%= msg %></li>
+			<% end %>
+	</ul>
+</div>
+
+<table>
+<tr>	
+<td><b>User Name</b></td>
+<td><%= f.text_field :name %></td>
+</tr>
+
+<tr>
+<td><b>Email</b></td>
+<td><%= f.text_field :email %></td>
+</tr>
+
+<tr>
+<td><b>Password</b></td>
+<td><%= f.password_field :password%></td>
+</tr>
+
+</table>
+
+
+<br/>
+<div class="actions" >
+<%= f.submit :value => "Create" %>
+</div>
+</div>
+<% end %> 
+
+
+
+   

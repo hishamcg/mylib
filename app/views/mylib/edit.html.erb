@@ -1,0 +1,53 @@
+<style>
+	.btn3 a{
+	font-size: 15px;
+    text-decoration: none;
+	color: #000000;}
+</style>
+<h2 style="color:blue;margin-left:29px;"> Welcome Admin</h2>
+
+<%= form_for(@book) do |f| %>
+
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+   <div class="field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </div>
+  <table>
+  <tr><td>
+  <div class="actions">
+    <%= f.submit %>
+  </div></td>
+   <td style="text-align:left;"><%= button_tag class: "btn3" do %>
+	<%= link_to 'Back', admin_path%>
+	<%end%></td></tr>
+	</table>
+ 
+<% end %>

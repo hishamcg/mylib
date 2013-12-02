@@ -1,0 +1,55 @@
+<style>
+td { text-align: center;
+
+    }
+
+.btn a{font-size: 15px;
+   text-decoration: none;
+   color: #000000;
+    }
+
+.box {border: 2px solid #222;
+      
+    }
+</style>
+
+
+<h2>Welcome Admin</h2>
+<h3>Listing products</h3>
+<%= button_tag class: "btn" do %>
+<%= link_to 'Add new' , addnewbook_path%>
+<%end%>
+<br />
+<br />
+<br />
+
+
+<table>
+  <tr>
+    <th class="box">Id.no</th>
+    <th class="box">Title</th>
+    <th class="box">Description</th>
+    <th class="box">Price</th>
+    <th class="box">Category_id</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @book.each do |book| %>
+  <tr>
+    <td><%= book.id %></td>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= book.price %></td>
+    <td><%= book.category_id %></td>
+    <td><%= link_to 'Show', hello_path%></td>
+    <td><%= link_to 'Edit', edit_path(book)%></td>
+    <td><%= link_to 'Destroy', destroy_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+

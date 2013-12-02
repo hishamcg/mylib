@@ -1,0 +1,53 @@
+ 	
+
+<style>
+
+div.padding
+{
+padding : 130px 430px;
+}
+</style>
+
+<div  class="padding">
+<h1> Welcome to my library </h1>
+<%= form_for(@hisham) do |f| %>
+   <% if @hisham.errors.any? %>
+		<div id="error_explanation" >
+			<h2><%= pluralize(@hisham.errors.count, "error" ) %>
+			prohibited this product from being saved:</h2>
+			<ul>
+				<% @hisham.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+    <% end %> 
+
+
+<table>
+<tr>
+<td><b><%= f.label :"Username" %></b></td>
+<td><%= f.text_field :name %></td>
+</tr>
+<tr>
+<td><b><%= f.label :"Password" %></b></td>
+<td><%= f.text_field :password %></td>
+</tr>
+<tr>
+<td><%= f.submit :value => "Sign in" %></td>
+<td><%= button_to "Sign up" , signup_path ,class: "botton" ,:method => "get"  %></td>
+</tr>
+</table>
+
+	
+<i><p style="color: #ff0000;"> wrong username or password </p></i>
+
+
+
+
+</div>
+<% end %> 
+
+
+
+   
