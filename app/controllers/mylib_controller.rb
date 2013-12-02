@@ -29,10 +29,18 @@ def signup
 	@user=User.new
 end
 
+def logout
+  sign_out
+  redirect_to welcome_url
+end
+
 def create 	
-  	user = User.new(params[:user])
+ 
+  	@user = User.new(params[:user])
+
 	if @user.save
-		redirect_to hello_url(:user => user) , notice: "signed up successfully"
+    p "~~~~~~~~~~~~~~~~params = #{@user.admin}"
+		render action: "hello" 
 	else
 		render 'signup'
 	end

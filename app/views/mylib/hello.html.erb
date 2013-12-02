@@ -97,7 +97,7 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
 <% if @user.admin %>
 <h2 style="color:blue;margin-left:29px;"> Welcome Admin</h2>
 <%else%>
-<h2 style="color:blue;margin-left:29px;"> <%=@user.name.upcase%>'s Account</h2>
+<h2 style="color:blue;margin-left:29px;"> <%=@user.name.capitalize%>'s Account</h2>
 <%end%>
 
 <%a="btn"%>
@@ -132,6 +132,9 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
     <td><%= button_tag class: c do %>
 	<%= link_to 'Romance', category_path(:romance) %>
 	<%end%></td>
+    <td style="padding-left:100px"><%= button_tag class: "btn3" do %>
+    <%= link_to 'Logout' , logout_path %>
+    <%end%></td>
 
 	<%if @user.admin%>
     <td style="text-align:left;"><%= button_tag class: "btn3" do %>

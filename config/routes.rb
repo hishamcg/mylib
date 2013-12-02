@@ -4,6 +4,7 @@ Learn::Application.routes.draw do
   post "/mylib/check" , as:'check'
   get "/mylib/user" , as:"user"
   get "/mylib/signup", as:'signup'
+  get "mylib/logout" , as:'logout'
   post "mylib/create" , as:'users'
   get "mylib/hello" , to: 'mylib#hello', as:"hello" 
   get "mylib/fiction" , as: "fiction"

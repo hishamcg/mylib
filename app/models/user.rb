@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name , :password ,:password_salt
+  attr_accessible :email, :name , :password ,:password_salt, :admin
   has_many :rentals
 
   before_save :encrypt_password 
