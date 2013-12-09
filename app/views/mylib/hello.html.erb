@@ -1,19 +1,89 @@
 <style>
 
-.btn a{
-	font-size: 15px;
+body {
+		background-image:url("/assets/rep4.jpg");
+		background-size: 1400px 1280px;
+		
+
+	}
+
+.back {
+		background-image:url("/assets/bleach.jpg");
+		background-size: cover;
+		margin:20px 150px 20px 150px; 
+		padding-top:10px;
+		-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+		-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+		box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+		/*and give the corners a small curve*/
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px; 
+	}
+
+h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google fonts*/
+    color:#ffffff; 
+    margin-left:5px;}
+
+.btn {
+	font-size: 18px;
+	padding:2px 30px;
     text-decoration: none;
 	color: #ff3333;}
 
-.btn2 a{
-	font-size: 15px;
+.btn2 {
+	font-size: 18px;
+	padding:2px 30px;
     text-decoration: none;
 	color: #3333ff;}
 
 .btn3 a{
 	font-size: 15px;
     text-decoration: none;
-	color: #000000;}
+	color: #0000ff;}
+
+.btn4 a{
+	font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google fonts*/
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+	color: #495a62;}
+
+.btn4 {
+	padding: 1px 30px;
+    background-color:#77e933;}
+
+.logout {
+	font-size: 18px;
+	padding-left:300px;
+    text-decoration: none;
+	color: #ff3333;}
+
+
+.top {
+	border: 2px solid #222;
+	-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	/*and give the corners a small curve*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px; 
+	padding-left: 215px;
+    background-color:#3C0847;}
+
+.top2 {
+	border: 2px solid #222;
+	-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	/*and give the corners a small curve*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px; 
+	padding: 0px 0px 15px 160px;
+    background-color:#290E0C;}
+
 
 a:hover{
 		color: #0000ff;}
@@ -35,8 +105,9 @@ ul.enlarge span.hov{
 
 ul.enlarge img{
 /*give the thumbnails a frame*/
+
 background-color:#eae9d4; /*frame colour*/
-padding: 6px; /*frame size*/
+padding: 5px; /*frame size*/
 /*add a drop shadow to the frame*/
 -webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
 -moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
@@ -45,6 +116,23 @@ box-shadow: 0 0 6px rgba(132, 132, 132, .75);
 -webkit-border-radius: 4px;
 -moz-border-radius: 4px;
 border-radius: 4px;
+	
+}
+
+ul.enlarge .trax{
+/*give the thumbnails a frame*/
+width: 400px;
+background-color:rgba(236,230,200,.5); /*frame colour*/
+padding: 10px 20px 10px 10px; /*frame size*/
+/*add a drop shadow to the frame*/
+-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+/*and give the corners a small curve*/
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+	
 }
 
 ul.enlarge span.hov img{
@@ -85,68 +173,138 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
 }
 
 .text{
-	left:50px;
+	
 	font-family: 'Droid Sans', sans-serif;
-	color: #495a62;
-	position:relative;	
-    pos
+	color: #00000;
+	
+
 }
+
+.digg_pagination {
+  background: white;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
 
 </style>
 
-<% if @user.admin %>
-<h2 style="color:blue;margin-left:29px;"> Welcome Admin</h2>
-<%else%>
-<h2 style="color:blue;margin-left:29px;"> <%=@user.name.capitalize%>'s Account</h2>
-<%end%>
 
-<%a="btn"%>
-<%b="btn"%>
-<%c="btn"%>
 
-<%if @data%>
-	<%if @data.first.category_id == 1 %>
-	<%a="btn2"%>
-	<%elsif @data.first.category_id == 2%>
-	<%b="btn2"%>
-	<%elsif @data.first.category_id == 3%>
-	<%c="btn2"%>
+<div class="top">
+	<table>
+	<tr>
+	<td>
+	<% if @user.admin %>
+	<h2> Welcome Admin</h2>
 	<%else%>
-	<%end%> 
-<%end%>
-
-
-
-
-<table>
-
- <tr> 
- <td>
-    <table >
-    <tr><td><%= button_tag class: a do %>
-	<%= link_to 'Fiction', category_path(:fiction) %>
-	<%end%></td>
-    <td><%= button_tag class: b do %>
-	<%= link_to 'Triller', category_path(:thriller) %>
-	<%end%></td>
-    <td><%= button_tag class: c do %>
-	<%= link_to 'Romance', category_path(:romance) %>
-	<%end%></td>
-    <td style="padding-left:100px"><%= button_tag class: "btn3" do %>
-    <%= link_to 'Logout' , logout_path %>
-    <%end%></td>
-
-	<%if @user.admin%>
-    <td style="text-align:left;"><%= button_tag class: "btn3" do %>
-	<%= link_to 'Back', admin_path%>
-	<%end%></td>
+	<h2 > <%=@user.name.capitalize%>'s Account</h2>
 	<%end%>
+	</td>
+	<td style="padding:40px 0px 0px 250px;">
+	 <%= form_tag(search_path, method: "get") do %>
+	 <%= label_tag(:q, "Search for:",:style => "color:#ffffff;") %>
+	 <%= text_field_tag(:q) %>
+ 	 <%= submit_tag("Search") %>
+	<% end %>
+	</td>
 	</tr>
 	</table>
 
+	<%a="btn"%>
+	<%b="btn"%>
+	<%c="btn"%>
+
+	<%if !@data.blank?%>
+		<%if @data.first.category_id == 1 %>
+		<%a="btn2"%>
+		<%elsif @data.first.category_id == 2%>
+		<%b="btn2"%>
+		<%elsif @data.first.category_id == 3%>
+		<%c="btn2"%>
+		<%else%>
+		<%end%> 
+	<%end%>
 
 
-   
+
+
+
+    
+
+  
+    
+</div>
+<div class="top2">	
+	<br/>
+
+    
+    <%#= button_tag class: a do %>
+	<%#= link_to 'Fiction', category_path(:fiction) %>
+	<%#end%>
+    <%#= button_tag class: b do %>
+	<%#= link_to 'Triller', category_path(:thriller) %>
+	<%#end%>
+    <%#= button_tag class: c do %>
+	<%#= link_to 'Romance', category_path(:romance) %>
+	<%#end%>
+
+	<a class="<%=a%>" href= '<%=category_path(:fiction)%>'>Fiction</a>
+	<a class="<%=b%>" href= '<%=category_path(:thriller)%>'>Triller</a>
+	<a class="<%=c%>" href= '<%=category_path(:romance)%>'>Romantic</a>
+	<a class="logout" href= '<%=logout_path%>'>Logout</a>
+
+	<%if @user.admin%>
+    <b style="padding-left:100px;">
+    <%= button_tag class: "btn3" do %>
+	<%= link_to 'Back', admin_path%>
+	<%end%>
+	</b>
+
+	<%end%>
+</div>
+
+<div class="back">   
     
 	<% if @data %>
 	   
@@ -154,44 +312,52 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
 	    <% @data.each do |data| %>
 	        <%if data.title && !data.title.blank?%>
 				
-				
+				<div class="trax">
 				<table>
 				<tr><td>
 				    <li>
 				    <span class="hov"> 
                     	<img src="<%="/assets/#{data.image}"%>" width="220" height="300px" alt="<%="#{data.image}"%>" />
                     	<br/>
-                    	<%= data.title.upcase %>
+                    	<i><%= data.title.capitalize %></i>
                 	</span>
-					
-					<img src="<%="/assets/#{data.image}"%>" width="100px" height="130px" alt="<%="#{data.image}"%>" />
+					<span>
+					<img src="<%="/assets/#{data.image}"%>" width="100px" height="130px" alt="<%="#{data.image}"%>" />					
+					</span>
 					</li>
-				</td><td>
+				</td><td class="text">
 
-				    <div class="text">
-                	<b>Title: <%= data.title.capitalize%></b><br/>
-                	<b>Author: <%= data.author.capitalize%></b><br/>
-                	<b>Price: Rs <%=data.price%> only</b><br/>
-                		<%= button_tag class: "btn" do %>
+				   
+                	<i>Title: <%= data.title.capitalize%></i><br/>
+                	<i>Author: <%= data.author.capitalize%></i><br/>
+                	<i>Price: Rs <%=data.price%> only</i><br/>
+                	    <br/>
+                		<%= button_tag class: "btn4" do %>
 						<%= link_to 'buy', proceedtopay_path(:data) %>
-					<%end%>
-					</div>
+					    <%end%>
+						
 
 				</td></tr>
                 </table>
+                </div>
+
+
 
 					
 				
                
                 
 			<%end%>
+			<br/>
 		<%end%>
 		</ul>
 		
+		<div class="digg_pagination">
+       
+   		<%= will_paginate @data, :container => false %>
+        </div>
 	<%end%>
+</div>	
 	
-	
-</td>
-</tr>
-</table>
+
 

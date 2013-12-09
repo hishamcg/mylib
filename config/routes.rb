@@ -7,9 +7,9 @@ Learn::Application.routes.draw do
   get "mylib/logout" , as:'logout'
   post "mylib/create" , as:'users'
   get "mylib/hello" , to: 'mylib#hello', as:"hello" 
-  get "mylib/fiction" , as: "fiction"
-  get "mylib/triller" , as: "triller"
-  get "mylib/romance" , as: "romance"
+ # get "mylib/fiction" , as: "fiction"
+ # get "mylib/triller" , as: "triller"
+ # get "mylib/romance" , as: "romance"
   get "category/:category_name" , to: 'mylib#category', as: "category"
   get "mylib/proceedtopay" , as: "proceedtopay"
   get "mylib/admin" ,as:"admin"
@@ -18,6 +18,7 @@ Learn::Application.routes.draw do
   delete "mylib/destroy/:id" ,to: "mylib#destroy" ,as:"destroy"
   get "/mylib/addnewbook" ,as: 'addnewbook'
   post "mylib/newbook" ,as: 'books'
+  get "mylib/search" ,as: 'search'
  # get "mylib/wrong" ,as:"wrong"
   # The priority is based upon order of creation:
   # first created -> highest priority.
