@@ -18,5 +18,13 @@ class Book < ActiveRecord::Base
 	  	filtered_books = Book.where("title LIKE ?","%#{s_word}%")
 	 end
   end
+
+  def image_link
+    if Rails.env.development?
+      "/assets/#{self.image}"
+    else
+      "#{self.image}"
+    end
+  end
   
 end
