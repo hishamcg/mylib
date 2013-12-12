@@ -54,7 +54,7 @@ td { text-align: center;
     <td><%= book.category_id %></td>
     <td><%= link_to 'Show', hello_path%></td>
     <td><%= link_to 'Edit', edit_path(book)%></td>
-    <td><%= link_to 'Destroy', destroy_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', destroy_path(book), confirm: 'Are you sure?', method: :delete  %></td>
   </tr>
 <% end %>
 </table>

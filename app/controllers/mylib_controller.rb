@@ -106,6 +106,7 @@ def search
   @result =params[:q]
   @data=Book.search(params[:q]).paginate(:page => params[:page], :per_page => 5)
   @user=current_user
+
   render 'hello'
   
 end

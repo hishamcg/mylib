@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
 
   validates :author ,:title ,:image ,:category_id ,:presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
-  validates :title ,:uniqueness => true
+  # validates :title ,:uniqueness => true
 
   def self.search(s_word)
   	if s_word

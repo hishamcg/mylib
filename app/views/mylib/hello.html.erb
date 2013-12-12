@@ -9,7 +9,6 @@ body {
 
 .back {
 		background-image:url("/assets/bleach.jpg");
-		background-size: cover;
 		margin:20px 150px 20px 150px; 
 		padding-top:10px;
 		-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
@@ -19,6 +18,7 @@ body {
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px; 
+		height: 1000px;
 	}
 
 h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google fonts*/
@@ -55,9 +55,9 @@ h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google
 
 .logout {
 	font-size: 18px;
-	padding-left:300px;
+	padding-left:150px;
     text-decoration: none;
-	color: #ff3333;}
+	color: #ffffff;}
 
 
 .top {
@@ -248,6 +248,9 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
  	 <%= submit_tag("Search") %>
 	<% end %>
 	</td>
+	<td>
+	<a class="logout" href= '<%=logout_path%>'>Logout</a>
+	</td>
 	</tr>
 	</table>
 
@@ -288,11 +291,9 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
     <%#= button_tag class: c do %>
 	<%#= link_to 'Romance', category_path(:romance) %>
 	<%#end%>
-
-	<a class="<%=a%>" href= '<%=category_path(:fiction)%>'>Fiction</a>
-	<a class="<%=b%>" href= '<%=category_path(:thriller)%>'>Triller</a>
-	<a class="<%=c%>" href= '<%=category_path(:romance)%>'>Romantic</a>
-	<a class="logout" href= '<%=logout_path%>'>Logout</a>
+	<% Category.all.each do |c| %>
+	<a class="<%=a%>" href= '<%=category_path(c.name)%>'><%= c.name %></a>
+	<% end%>
 
 	<%if @user.admin%>
     <b style="padding-left:100px;">
