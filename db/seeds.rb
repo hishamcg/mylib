@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
- Book.delete_all
- Category.delete_all
+ #Book.delete_all
+ #Category.delete_all
  User.delete_all
 
 
@@ -20,7 +20,7 @@ User.create!(name: 'Awin2', email: 'awin2@example.com', password: 'awin2', admin
 require "open-uri"
 require 'googlebooks'
 
-books = GoogleBooks.search('fiction', {:count => 40}) 
+books = GoogleBooks.search('comics', {:count => 40}) 
 books.each do |bk|
 	c = Category.find_or_create_by_name("#{bk.categories.present? ? bk.categories : 'Others'}")
 	b = Book.create!(title: bk.title, author: "#{bk.authors.present? ? bk.authors : 'Hisham CG'}", publisher: bk.publisher, category_id: c.id, price: bk.page_count.to_s.to_i+50, image: "#{bk.image_link}")
