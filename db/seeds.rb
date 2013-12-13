@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# Book.delete_all
-# Category.delete_all
-# User.delete_all
+ Book.delete_all
+ Category.delete_all
+ User.delete_all
 
 
 User.create!(name: 'Awin', email: 'awin@example.com', password: 'awin', admin: true)
