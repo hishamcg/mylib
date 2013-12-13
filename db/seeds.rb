@@ -22,7 +22,7 @@ require 'googlebooks'
 
 books = GoogleBooks.search('fiction', {:count => 40}) 
 books.each do |bk|
-	c = Category.find_or_create_by_name("#{bk.categories.present? ? bk.categories : 'Literary Criticism'}")
+	c = Category.find_or_create_by_name("#{bk.categories.present? ? bk.categories : 'Others'}")
 	b = Book.create!(title: bk.title, author: "#{bk.authors.present? ? bk.authors : 'Hisham CG'}", publisher: bk.publisher, category_id: c.id, price: bk.page_count.to_s.to_i+50, image: "#{bk.image_link}")
         if Rails.env.development?
 	  require "open-uri"
