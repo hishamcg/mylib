@@ -2,25 +2,37 @@
 
 <style>
 body {
-		background-image:url("/assets/rep4.jpg");
-		background-size: 1400px 1280px;
-		}
+		background-image:url("/assets/book1.jpg");
+		background-size: cover;}
 
-div.padding
-{
-padding : 130px 430px;
-}
 .signup-btn a{
 		text-decoration: none;
 		color: #000;}
 .err{
 	color: red;
 	font-size: 14px;
-	margin-top: 10px;
-}
+	margin-top: 10px;}
+
+nav {
+ 	background-color: rgba(200, 200, 180, .7); 
+	padding: 10px 20px 10px 10px; /*frame size*/
+	/*add a drop shadow to the frame*/
+	/*-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	/*and give the corners a small curve*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px; 
+	position: absolute;
+	list-style-type:none;  
+	display: inline-table;
+    top: 100px;
+    left: 450px;}
+
 </style>
 
-<div  class="padding">
+<nav>
 <h1> Welcome to my library </h1>
 <%= form_for(@user , url: check_path) do |f| %>
    <% if @user.errors.any? %>
@@ -51,14 +63,15 @@ padding : 130px 430px;
 	<%= link_to 'Sign up', signup_path %>
 	<%end%></td>
 </tr>
-<tr><td></td><td><i><p class="err"><%= notice %></p><i></td></tr>
+<tr><td></td><td><i><p class="err"><%= notice %></p></i></td></tr>
 </table>
 
 
 
+<% end %>
+</nav>
 
-</div>
-<% end %> 
+
 
 
 

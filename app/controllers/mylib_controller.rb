@@ -55,7 +55,7 @@ end
 def category
   
   category = Category.find_by_name(params[:category_name])
-  @data = Book.where(:category_id => category.id).paginate(:page => params[:page], :per_page => 5 )
+  @data = Book.where(:category_id => category.id).paginate(:page => params[:page], :per_page => 3 )
   @user=current_user
   render 'hello'
 end
@@ -104,10 +104,12 @@ end
 def search
   p "~~~~~~~~~~~#{params[:q]}"
   @result =params[:q]
-  @data=Book.search(params[:q]).paginate(:page => params[:page], :per_page => 5)
+  @data=Book.search(params[:q]).paginate(:page => params[:page], :per_page => 3)
   @user=current_user
-
-  render 'hello'
+  respond_to do |format|
+    format.html {render 'hello'}
+    format.json { render json: @data }
+  end
   
 end
 

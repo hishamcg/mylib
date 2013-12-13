@@ -2,21 +2,33 @@
 
 <style>
 body {
-		background-image:url("/assets/rep4.jpg");
-		background-size: 1400px 1280px;
-		}
-		
-div.padding
-{
-padding : 130px 430px;
-}
+		background-image:url("/assets/book1.jpg");
+		background-size: cover;}
+
 .errors ul li{
 	color: red;
-	font-size: 12px;
-}
+	font-size: 12px;}
+
+nav {
+ 	background-color: rgba(200, 200, 180, .7); 
+	padding: 10px 20px 10px 10px; /*frame size*/
+	/*add a drop shadow to the frame*/
+	/*-webkit-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	-moz-box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	box-shadow: 0 0 6px rgba(132, 132, 132, .75);
+	/*and give the corners a small curve*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px; 
+	position: absolute;
+	list-style-type:none;  
+	display: inline-table;
+    top: 100px;
+    left: 450px;}
+
 </style>
 
-<div  class="padding">
+<nav>
 <h1> Welcome to my library </h1>
 <%= form_for(@user) do |f| %>
 <div class="errors">
@@ -50,8 +62,8 @@ padding : 130px 430px;
 <div class="actions" >
 <%= f.submit :value => "Create" %>
 </div>
-</div>
 <% end %> 
+</nav>
 
 
 

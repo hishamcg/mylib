@@ -1,7 +1,7 @@
 Learn::Application.routes.draw do
 
   get "/user" ,:to => 'mylib#welcome' , as:'welcome'
-  post "/mylib/check" , as:'check'
+  match "/mylib/check" , as:'check'
   get "/mylib/user" , as:"user"
   get "/mylib/signup", as:'signup'
   get "mylib/logout" , as:'logout'
