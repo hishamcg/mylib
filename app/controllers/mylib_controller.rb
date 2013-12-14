@@ -14,9 +14,9 @@ def check
     #redirect_to root_url, :notice => "Logged in!"
     sign_in(user)
     if(user.admin)
-     redirect_to admin_url(:user => user), notice: "Hi #{user.name} welocme to Yourlib"
+     redirect_to admin_url, notice: "Hi #{user.name} welocme to Yourlib"
     else
-     redirect_to hello_url(:user => user), notice: "Hi #{user.name} welocme to Mylib"
+     redirect_to hello_url, notice: "Hi #{user.name} welocme to Mylib"
     end
   else
     #flash.now.alert = "Invalid email or password"
@@ -47,11 +47,7 @@ def create
 	end
 end
 def hello
-  if @user.blank?
-   @user
-  else
    @user=current_user
-  end
 end
 
 

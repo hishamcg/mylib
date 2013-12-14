@@ -34,10 +34,11 @@ h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google
     text-decoration: none;
 	color: #3333ff;}
 
-.btn3 a{
-	font-size: 15px;
+.btn3{
+	font-size: 18px;
+	padding-left:50px;
     text-decoration: none;
-	color: #0000ff;}
+	color: #ffffff;}
 
 .btn4 a{
 	font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google fonts*/
@@ -320,9 +321,10 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
  	 <%= submit_tag("Search") %>
 	<% end %>
 	</td>
-	<td>
-	<a class="logout" href= '<%=logout_path%>'>Logout</a>
-	</td>
+	<td><a class="logout" href= '<%=logout_path%>'>Logout</a></td>
+	<%if @user.admin%>
+	    <td><a class="btn3" href= '<%=admin_path%>'>Back</a></td>
+    <%end%>
 	</tr>
 	</table>
 
@@ -379,14 +381,7 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
 </nav>
 </div>
 
-	<%if @user.admin%>
-    <b style="padding-left:100px;">
-    <%= button_tag class: "btn3" do %>
-	<%= link_to 'Back', admin_path%>
-	<%end%>
-	</b>
-
-	<%end%>
+	
 </div>
     
 <% if !@data.blank? %>
