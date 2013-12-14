@@ -47,7 +47,11 @@ def create
 	end
 end
 def hello
+  if @user.blank?
+   @user
+  else
    @user=current_user
+  end
 end
 
 

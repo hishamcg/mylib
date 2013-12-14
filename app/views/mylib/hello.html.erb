@@ -64,7 +64,11 @@ h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google
 
 
 .top {
-	border: 2px solid #6b727c;
+	background: rgba(0, 0, 0, 0.8);
+	/*background: linear-gradient(top, #4f5964 0%, #200000 100%);
+	background: -moz-linear-gradient(top, #4f5964 0%, #200000 100%);
+	background: -webkit-linear-gradient(top, #4f5964 0%,#200000 100%);*/
+	border: 2px solid #ffffff;
 	-webkit-box-shadow: 0 0 6px rgba(30, 30, 30, .75);
 	-moz-box-shadow: 0 0 6px rgba(30, 30, 30, .75);
 	box-shadow: 0 0 6px rgba(30, 30, 30, .75);
@@ -72,8 +76,8 @@ h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px; 
-	padding-left: 215px;
-    background-color:#3C0847;}
+	padding-left: 10%;
+    }
 
 .top2 {
 	border: 2px solid #fff;
@@ -85,7 +89,8 @@ h2 {font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google
 	-moz-border-radius: 4px;
 	border-radius: 4px; 
 	padding: 0px 0px 15px 160px;
-    background-color:#290E0C;}
+
+    background-color: rgba(41, 14, 12 ,0.8);} 
 
 
 nav ul{
@@ -308,7 +313,7 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
 	<h2 > <%=@user.name.capitalize%>'s Account</h2>
 	<%end%>
 	</td>
-	<td style="padding:40px 0px 0px 250px;">
+	<td style="padding:40px 0px 0px 200px;">
 	 <%= form_tag(search_path, method: "get") do %>
 	 <%= label_tag(:q, "Search for:",:style => "color:#ffffff;") %>
 	 <%= text_field_tag(:q) %>
@@ -358,13 +363,13 @@ left: 100px; /*distance from the left of the thumbnail to the left of the popup 
     <%#= button_tag class: c do %>
 	<%#= link_to 'Romance', category_path(:romance) %>
 	<%#end%>
-<div style="padding-left:700px">
+<div style="padding-left:65%">
 <nav>
 	<ul>
 	<li><a class="categ" href="#">Category</a>
 		<ul>
 			<% Category.all.each do |c| %>
-			<li><a href= '<%=category_path(c.name)%>'><%= c.name %></a></li>
+			<li><a href= '<%=category_path(c.name)%>'><%= "#{c.name} (#{Book.where(:category_id => c.id).count})"%></a></li>
 			<% end%>
 		</ul>
 	</li>
