@@ -104,11 +104,14 @@ end
 def search
   p "~~~~~~~~~~~#{params[:q]}"
   @result =params[:q]
-  @data=Book.search(params[:q]).paginate(:page => params[:page], :per_page => 3)
   @user=current_user
   respond_to do |format|
-    format.html {render 'hello'}
-    format.json { render json: @data }
+    format.html {
+      @data=Book.search(params[:q]).paginate(:page => params[:page], :per_page => 3)
+      render 'hello'}
+    format.json { 
+      @data=Book.search(params[:q]).paginate(:page => params[:page], :per_page => 10)
+      render json: {'contacts' => @data}, :except => [:edition] }
   end
   
 end
