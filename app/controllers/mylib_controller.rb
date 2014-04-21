@@ -28,7 +28,7 @@ end
 def signup
 	@user=User.new
 end
-
+ 
 def logout
   sign_out
   redirect_to welcome_url
